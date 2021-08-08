@@ -2,9 +2,7 @@
 
 Compute NeuralHash for a given image.
 
-**Requires macOS Monterey**
-
-Only tested with macOS Monterey beta 4, it may break in the future.
+Works with macOS 11.3 or later.
 
 Behind the scene, the implementation invokes the API provided by the Vision framework to compute the NeuralHash for a given image.
 

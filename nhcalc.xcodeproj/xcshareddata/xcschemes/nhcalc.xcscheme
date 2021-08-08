@@ -50,12 +50,6 @@
             ReferencedContainer = "container:nhcalc.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "&quot;/Users/khaos/Desktop/Screen Shot 2020-11-17 at 9.39.26 PM.png&quot;"
-            isEnabled = "YES">
-         </CommandLineArgument>
-      </CommandLineArguments>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
