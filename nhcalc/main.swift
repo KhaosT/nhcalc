@@ -43,8 +43,15 @@ func generateNeuralHash(imagePath: String) {
     }
 }
 
-guard CommandLine.arguments.count > 1, let imagePath = CommandLine.arguments.last else {
-    print("Missing Image Path")
+let executableName = CommandLine.arguments.removeFirst()
+
+if ( CommandLine.arguments.count <= 0 ) {
+    print("\nError: Missing Image Path\n")
+    print("usage:\n")
+    print("    ",
+          CommandLine.arguments.first ?? "nhcalc",
+          "image_path",
+          "[image path...]\n")
     exit(1)
 }
 
