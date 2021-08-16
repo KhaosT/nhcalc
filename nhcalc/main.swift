@@ -22,8 +22,9 @@ func generateNeuralHash(imagePath: String) {
                         let imageHData = try imageHash?.encodeHashDescriptorWithBase64Encoding()
                         if let imageHData = imageHData,
                            let value = String(data: imageHData, encoding: .ascii) {
-                            print(imageHData.map { String(format: "%02hhx", $0) }.joined())
-                            print(value)
+                            print(imagePath,
+                                  imageHData.map { String(format: "%02hhx", $0) }.joined(),
+                                  value)
                         }
                     } catch {
                         print(error)
@@ -47,4 +48,7 @@ guard CommandLine.arguments.count > 1, let imagePath = CommandLine.arguments.las
     exit(1)
 }
 
-generateNeuralHash(imagePath: imagePath)
+
+CommandLine.arguments.forEach { imagePath in
+    generateNeuralHash(imagePath: imagePath)
+}
