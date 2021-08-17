@@ -22,8 +22,9 @@ func generateNeuralHash(imagePath: String) {
                         let imageHData = try imageHash?.encodeHashDescriptorWithBase64Encoding()
                         if let imageHData = imageHData,
                            let value = String(data: imageHData, encoding: .ascii) {
-                            print(imageHData.map { String(format: "%02hhx", $0) }.joined())
-                            print(value)
+                            print(imagePath,
+                                  imageHData.map { String(format: "%02hhx", $0) }.joined(),
+                                  value)
                         }
                     } catch {
                         print(error)
@@ -42,9 +43,16 @@ func generateNeuralHash(imagePath: String) {
     }
 }
 
-guard CommandLine.arguments.count > 1, let imagePath = CommandLine.arguments.last else {
-    print("Missing Image Path")
+let executableName = CommandLine.arguments.removeFirst()
+
+if ( CommandLine.arguments.count <= 0 ) {
+    print("\nError: Missing Image Path\n")
+    print("usage:\n")
+    print("    ", executableName, "image_path", "[image path...]\n")
     exit(1)
 }
 
-generateNeuralHash(imagePath: imagePath)
+
+CommandLine.arguments.forEach { imagePath in
+    generateNeuralHash(imagePath: imagePath)
+}
