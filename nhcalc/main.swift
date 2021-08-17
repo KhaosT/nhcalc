@@ -48,10 +48,7 @@ let executableName = CommandLine.arguments.removeFirst()
 if ( CommandLine.arguments.count <= 0 ) {
     print("\nError: Missing Image Path\n")
     print("usage:\n")
-    print("    ",
-          CommandLine.arguments.first ?? "nhcalc",
-          "image_path",
-          "[image path...]\n")
+    print("    ", executableName, "image_path", "[image path...]\n")
     exit(1)
 }
 
